@@ -33,6 +33,12 @@ Uso:
 * colocar posteriormente el directorio `dist` en el servidor
 
 
+
+
+Los archivos en la carpeta `/ci-login/dist` pueden utilizarse directamente para colocar en el servidor para la visualización del Frontend. Solo hay que editar el archivo `config.json`para ser utilizado. (Ver debajo las variables configurables y sus valores),
+
+
+
 ##/ci-rest
 Backend con el API necesario para el login y generacion de los jwt tokens (Codeigniter 3)
 
