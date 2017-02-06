@@ -26,6 +26,7 @@ Uso:
 * colocar la carpeta `/ci-rest` en el servidor
 
 
+# Instalación y configuración
 
 Para configurar la apliación correctamente hay que editar el archivo `config.json` situado en la carpeta `/ci-login/app` **previamente** a la generación de la aplicación angular con `grunt build`.
 
