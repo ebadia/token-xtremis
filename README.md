@@ -8,6 +8,16 @@ Contiene:
 Archivo SQL para la creación de la BBDD necesaria para el API de  login.
 En el servidor MySQL ejecutar el archivo SQL para crear la tabla necesaria.
 
+Una vez instalada la BBDD hay que editar el archivo `/ci-rest/application/config/database.php`para poner los datos correctos de acceso a la BBDD:
+
+`'hostname' => 'localhost', // nombre del Host de la BBDD`
+`'username' => 'root', // nombre del usuario de aaceso a la BBDD`
+`'password' => '', // password del usuario de acceso a la BBDD`
+`'database' => 'api_auth', // nombre de la tabla de la BBDD` 
+
+
+
+
 ##/ci-login
 Frontend para el login de los usuarios (AngularJS 1.6)
 
