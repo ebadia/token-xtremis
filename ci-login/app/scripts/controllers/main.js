@@ -16,7 +16,6 @@ angular.module('loginAppApp')
 
 	$http.get('config.json')
 	.then( function(res){
-		console.log(res);
 		self.destino = res.data.url;
 		self.welcome = res.data.welcome;
 	});
@@ -27,7 +26,7 @@ angular.module('loginAppApp')
 	// viene de $rootScope y lo activamos en el componente de login
 	$scope.$on('thetoken', function(evt,args){
 		if (args !== null){
-			self.prova = args;
+			self.destino = self.destino + args;
 		}
 	});
 
