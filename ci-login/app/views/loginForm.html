@@ -1,0 +1,80 @@
+<!-- mostramos el formulario de login  -->
+<div ng-show="loginForm.islogin">
+	
+	<!-- mostramos el formulario de login/signup si no estamos conectados -->
+	<div ng-show="!loginForm.islogged">
+		<form id="loginForm" name="fLogin" class="form" novalidate>
+
+			<div class="input-group">
+				<span class="input-group-addon">@</span>
+				<input type="email" name="email" class="form-control" ng-model="loginForm.user.email" placeholder="Email" ng-required="true" required>
+			</div>
+				<div ng-messages="fLogin.email.$error" ng-if="fLogin.email.$touched || fLogin.email.$dirty">
+			        <p ng-message="required">El email es obligatorio.</p>
+			        <p ng-message="email">Ha de ser un email válido.</p>
+			    </div>
+
+			<div class="input-group">
+				<span class="input-group-addon"><span class="glyphicon glyphicon-option-horizontal" aria-hidden="true"></span></span>
+				<input type="password" name="password" class="form-control" ng-model="loginForm.user.password" placeholder="Password" ng-required="true" required >
+			</div>
+				<div ng-messages="fLogin.password.$error" ng-if="fLogin.password.$touched">
+			        <p ng-message="required">El password es obligatorio.</p>
+			    </div>
+
+			<button type="submit" ng-click="loginForm.login()" class="btn btn-primary btn-block" ng-disabled="fLogin.$invalid">Login</button>
+		</form>
+		<div style="margin-top: 15px;">
+			¿No estás registrado?<button ng-click="loginForm.toggleIssignin()" class="btn btn-link">Date de alta aquí</button>
+		</div>
+	</div>
+
+	<!-- mostramos el formulario de logout si estamos conectados -->
+	<div ng-show="loginForm.islogged">
+		<!-- usuario conectado como... -->
+		<span class="pull-left">
+			Conectado como: {{loginForm.user.email}}
+		</span>
+		<form id="loginForm" class="form-inline pull-right">
+			<div class="form-group">
+				<button type="submit" ng-click="loginForm.logout()" class="btn btn-default">Logout</button>
+			</div>
+		</form>
+	</div>
+</div>
+
+<!-- mostramos el formulario de signup  -->
+<div ng-show="loginForm.issignin">
+
+	<!-- mostramos el formulario de login/signup si no estamos conectados -->
+	<form id="signinForm" name="fSignin" class="form" novalidate>
+		<div class="form-group">
+			<input type="text" name="firstname" class="form-control" ng-model="loginForm.siuser.firstname" placeholder="Nombre" >
+			<input type="text" name="lastname" class="form-control" ng-model="loginForm.siuser.lastname" placeholder="Apellidos" >
+
+			<input type="email" name="email" class="form-control" ng-model="loginForm.siuser.email" placeholder="Email" ng-required="true" ng-minlength="5">
+				<div ng-messages="fSignin.email.$error" ng-if="fSignin.email.$touched || fLogin.email.$dirty">
+		        	<p ng-message="required">El email es obligatorio.</p>
+		        	<p ng-message="minlength">El email ha de ser válido.</p>
+		    	</div>
+
+			<input type="password" name="password" class="form-control" ng-model="loginForm.siuser.password" placeholder="Password" ng-required="true" ng-minlength="8">
+				<div ng-messages="fSignin.password.$error" ng-if="fLogin.password.$dirty">
+		        	<p ng-message="required">El password es obligatorio.</p>
+		        	<p ng-message="minlength">El password ha de tener 8 caracteres mínimo.</p>
+		    	</div>
+
+			<input type="password" name="passwordconf" class="form-control" ng-model="loginForm.siuser.passwordconf" placeholder="Repite el Password" ng-required="true">
+				<div ng-messages="fSignin.passwordconf.$error" ng-if="fLogin.passwordconf.$dirty">
+		        	<p ng-message="required">Debes confirmar el password.</p>
+		    	</div>
+				<!-- mensaje si los dos passwords no coinciden -->
+		    	<div ng-if="( (loginForm.siuser.password.length >= 8) && (loginForm.siuser.password!==loginForm.siuser.passwordconf) )">
+		    		<p>Los passwords no coinciden.</p>
+		    	</div>
+		</div>
+		<button id="login-button" type="submit" ng-click="loginForm.signin()" class="btn btn-primary" ng-disabled="fSignin.$invalid || (loginForm.siuser.password!==loginForm.siuser.passwordconf)">Sign In</button>
+		<button ng-click="loginForm.toggleIslogin()" class="btn btn-default">Cancela</button>
+	</form>
+</div>
+
