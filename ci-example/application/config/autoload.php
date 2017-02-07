@@ -103,7 +103,7 @@ $autoload['helper'] = array('url', 'form', 'cookie', 'jwt', 'middle');
 | config files.  Otherwise, leave it blank.
 |
 */
-$autoload['config'] = array('middle');
+$autoload['config'] = array('jwt','middle');
 
 /*
 | -------------------------------------------------------------------
