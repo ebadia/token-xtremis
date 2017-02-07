@@ -7,7 +7,7 @@
  * PHP version 5
  *
  * @category Authentication
- * @package  Authentication_JWT
+ * @package  Authentication_MIDDLE
  * @author   Enric Badia <enric@ideatius.com>
  * @license  http://opensource.org/licenses/BSD-3-Clause 3-clause BSD
  * @link     https://github.com/firebase/php-jwt
@@ -42,7 +42,7 @@ class MIDDLE
         } catch (Exception $e){
             return false;
         }
-        
+
         return false;
 	}
 

@@ -2,4 +2,5 @@
 	"welcome": "Welcome to the new Login 4API!",
 	"url": "http://localhost/token/ci-example/clientes/lista/",
 	"apiUrl": "http://ci-rest.local/api/v1/"
+	
 }
