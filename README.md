@@ -47,6 +47,36 @@ Uso:
 * colocar la carpeta `/ci-rest` en el servidor
 
 
+En el fichero ``/ci-example/application/config/jwt.php` se encuentra la clave secreta de codificación del token.
+
+El token esta definido para expirar a las 4 horas de haberse solicitado. (Podria cambiarse de forma dinamica)
+
+
+
+## /ci-example
+
+Ejemplo de uso del token con un API externo (Codeigniter 3)
+
+El ejemplo de uso se encuentra en el archivo `/ci-example/application/controllers/Clientes.php`
+
+Para su uso en otros entornos hay que incluir en el php de lectura de la BBDD (API):
+
+`/ci-example/application/helpers/jwt_helper.php`
+
+``/ci-example/application/config/jwt.php` (archivo que contiene la clave secreta de decodificación del token. Ha de ser la misma usada para la codificación)
+
+El esquema de funcionamiento es:
+
+- leemos el token que viene en la URI
+- abrimos un bloque try
+- decodificamos la clave
+- si la decodifica correctamente leemos los datos solicitados al API i devolvemos los valores o mostramos los resultados en una pagina
+- en el bloque catch se recogen las excepciones de lectura del token y devolvemos un error 400 con el texto del error
+
+
+
+
+
 # Instalación y configuración
 
 Para configurar la apliación correctamente hay que editar el archivo `config.json` situado en la carpeta `/ci-login/app` **previamente** a la generación de la aplicación angular con `grunt build`.
