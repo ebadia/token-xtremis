@@ -31,11 +31,17 @@ class MIDDLE
         try {
             // verifica token
             $token = $peticion['token'];
+			// si el token ta vacio
+            if ( $token == ""){
+				redirect($CI->config->item('redireccion'));
+			}
+
             $goodtoken = JWT::decode($token, $CI->config->item('jwt_key'));
 			// si el token es incorrecto o esta expirado
             if ($goodtoken == false || $goodtoken->exp <= time())
             {
                 // error. los campos de entrada estan vacios
+				redirect($CI->config->item('redireccion'));
                 return false;
             } else {
                 return $token;

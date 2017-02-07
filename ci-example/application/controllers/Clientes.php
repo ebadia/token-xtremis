@@ -23,10 +23,6 @@ class Clientes extends CI_Controller {
         // hemos de comprobar el token
         $peticion = $this->uri->uri_to_assoc();
         $token = MIDDLE::verify($peticion);
-        if ($token == false ){
-            $this->load->view('error');
-            return;
-        }
 
         /**
          * procesa la peticion
@@ -62,10 +58,6 @@ class Clientes extends CI_Controller {
         // hemos de comprobar el token
         $peticion = $this->uri->uri_to_assoc();
         $token = MIDDLE::verify($peticion);
-        if ($token == false ){
-            $this->load->view('error');
-            return;
-        }
 
         /**
          * procesa la peticion
