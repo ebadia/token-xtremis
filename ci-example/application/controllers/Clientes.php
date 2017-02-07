@@ -18,6 +18,8 @@ class Clientes extends CI_Controller {
 
     public function lista(){
 
+        //$token = get_cookie('ls_token');
+
         // hemos de comprobar el token
         $peticion = $this->uri->uri_to_assoc();
         $token = MIDDLE::verify($peticion);
