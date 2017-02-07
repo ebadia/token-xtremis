@@ -1,2 +1,3 @@
 
 ci-example/application/config/database.php
+ci-login/application/config/database.php
