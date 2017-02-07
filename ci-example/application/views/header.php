@@ -80,7 +80,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <div class="header">
 	<div class="container">
 		<div class="row">
-			<div class="pull-right"><a href="http://localhost:9000">Desconecta</a></div>
+			<div class="pull-right"><a href="<?=$redireccion?>">Desconecta</a></div>
 			<h1>Listado de clientes!</h1>
 		</div>
 	</div>

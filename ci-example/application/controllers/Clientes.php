@@ -9,6 +9,8 @@ class Clientes extends CI_Controller {
         parent::__construct();
         $this->load->model('clientes_model');
 
+        $this->redireccion = $this->config->item('redireccion');
+
     }
 
 	public function index()
@@ -34,9 +36,10 @@ class Clientes extends CI_Controller {
         // Check if the users data store contains users (in case the database result returns NULL)
         if ($clientes)
         {
+            $data['redireccion'] = $this->redireccion;
             $data['clientes'] = $clientes;
             $data['token'] = $token;
-            $this->load->view('header');
+            $this->load->view('header', $data);
             $this->load->view('lista_clientes', $data);
             $this->load->view('footer');
             // Set the response and exit
@@ -71,7 +74,7 @@ class Clientes extends CI_Controller {
         {
             $data['cliente'] = $res;
             $data['token'] = $token;
-            $this->load->view('header');
+            $this->load->view('header', $data);
             $this->load->view('detalle_clientes', $data);
             $this->load->view('footer');
             // Set the response and exit
