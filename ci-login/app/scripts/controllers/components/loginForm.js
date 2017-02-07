@@ -94,7 +94,7 @@
  					self.user.email = res.data.email;
  					self.expira = jwtHelper.getTokenExpirationDate(res.data.token);
  					$rootScope.$broadcast('thetoken', localStorageService.get('token'));
- 					$window.location.href = self.goto+res.data.token;
+ 					$window.location.href = self.goto+'token/'+res.data.token;
  				},
  				/*
  				* @description

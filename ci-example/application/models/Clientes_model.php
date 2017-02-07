@@ -33,10 +33,11 @@ class Clientes_model extends CI_Model {
 		if ($query->num_rows() == 1)
 		{
 			$result = $query->result();
-			$user->id = $result[0]->id;
-			$user->email = $result[0]->email;
-		}
+			//$user->id = $result[0]->id;
+			//$user->email = $result[0]->email;
+			$user = $result[0];
 
+		}
 		return $user;
 	}
 
