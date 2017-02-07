@@ -32,7 +32,8 @@ class MIDDLE
             // verifica token
             $token = $peticion['token'];
             $goodtoken = JWT::decode($token, $CI->config->item('jwt_key'));
-            if ($goodtoken == false)
+			// si el token es incorrecto o esta expirado
+            if ($goodtoken == false || $goodtoken->exp <= time())
             {
                 // error. los campos de entrada estan vacios
                 return false;
