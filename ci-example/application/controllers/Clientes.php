@@ -72,6 +72,7 @@ class Clientes extends CI_Controller {
         // Check if the users data store contains users (in case the database result returns NULL)
         if ($res)
         {
+            $data['redireccion'] = $this->redireccion;
             $data['cliente'] = $res;
             $data['token'] = $token;
             $this->load->view('header', $data);

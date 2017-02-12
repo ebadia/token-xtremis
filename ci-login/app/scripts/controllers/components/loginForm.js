@@ -87,10 +87,10 @@
  				*/
  				function(res){
  					// poner el resultado del token en localstorage
-                    localStorageService.set('email', res.data.email);
+          localStorageService.set('email', res.data.email);
  					localStorageService.set('token', res.data.token);
-                    // cookies
-                    localStorageService.cookie.set('email', res.data.email,1);
+          // cookies
+          localStorageService.cookie.set('email', res.data.email,1);
  					localStorageService.cookie.set('token', res.data.token,1);
  					// variables para el UI
  					self.islogged = true;
